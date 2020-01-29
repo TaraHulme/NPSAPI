@@ -25,7 +25,7 @@ function displayResults(responseJson) {
         $('#results-list').append (
             `<li><h3>${responseJson.data[i].fullName}</h3>
             <p>${responseJson.data[i].description}</p>
-            <a href='${responseJson.data[i].url}'></a>
+            <a href='${responseJson.data[i].url}'>${responseJson.data[i].url}</a>
             <p>${responseJson.data[i].directionsInfo}</p>
             </li>`
         )
