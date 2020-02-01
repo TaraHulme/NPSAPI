@@ -17,6 +17,7 @@ button:hover {
 .container {
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
 }
   
 .error-message {

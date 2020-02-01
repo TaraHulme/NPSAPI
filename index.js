@@ -4,8 +4,8 @@ console.log(name);
 'use strict';
 
 const apiKey = 'Q1j4CMlmNsUejyosuRHljAG1mP3atO3dDCEygTSg';
-// const searchURL = 'https://developer.nps.gov/api/v1/parks?parkCode=acad';
- const searchURL = 'https://api.nps.gov/api/v1/parks';
+
+ const searchURL = `https://api.nps.gov/api/v1/parks?stateCode=${this.queryString}`;
 
 function formatQueryParams(params) {
     const queryItems= Object.keys(params)
@@ -34,15 +34,18 @@ function displayResults(responseJson) {
 };
 
 function getNationalParks(query, maxResults=10) {
+    console.log('37');
     const params = {
+        
         api_key: apiKey,
         q: query,
-        maxResults,
+        // maxResults,
         
     };
+    console.log('45');
     const queryString = formatQueryParams(params)
     const url = searchURL + '?' + queryString;
-
+console.log(queryString);
     console.log(url);
 
     fetch(url)
@@ -65,6 +68,7 @@ function watchForm() {
         const maxResults = $('#js-max-results').val();
         getNationalParks(searchTerm, maxResults);
     });
+    console.log('watch form party')
 }
 
 $(watchForm);
